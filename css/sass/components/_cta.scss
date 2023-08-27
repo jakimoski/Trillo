@@ -1,0 +1,61 @@
+@use "../abstracts/" as *;
+.cta {
+  &__book-now {
+    font-size: $heading-size-s;
+    font-weight: 300;
+    margin-bottom: rem-calc(25);
+    text-transform: uppercase;
+  }
+}
+
+.book-form {
+  margin-bottom: rem-calc(25);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  label {
+    display: block;
+  }
+
+  select {
+    padding: rem-calc(5) rem-calc(10);
+    background-color: var(--color-white);
+    border: 1px solid currentColor;
+    @include screenSize(phone) {
+      width: 80%;
+      text-align: center;
+    }
+  }
+  input[type="date"] {
+    border: 1px solid currentColor;
+    padding: rem-calc(2) rem-calc(10);
+    @include screenSize(phone) {
+      width: 80%;
+      text-align: center;
+    }
+  }
+
+  select:focus,
+  input:focus {
+    outline: none;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  &__btn {
+    flex-basis: 100%;
+    margin-top: rem-calc(20);
+  }
+  &__inner {
+    @include screenSize(phone) {
+      flex: 0 0 100%;
+      margin-bottom: 15px;
+    }
+  }
+  &__inner:not(:last-child) {
+    margin-right: rem-calc(20);
+  }
+}

@@ -1,0 +1,89 @@
+@use "../abstracts/" as *;
+
+.side-nav {
+  font-size: $font-size-s;
+  list-style: none;
+  margin-top: rem-calc(35);
+  position: sticky;
+  top: 10px;
+  @include screenSize(tablet) {
+    display: flex;
+    margin: 0;
+  }
+
+  &__item {
+    position: relative;
+    @include screenSize(tablet) {
+      flex: 1;
+    }
+    &:not(:last-child) {
+      margin-bottom: 5px;
+      @include screenSize(tablet) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transition: transform 0.2s ease-in-out, width 0.4s ease-in-out 0.2s,
+      background-color 0.1s;
+    cursor: pointer;
+  }
+
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+  &__item:active::before {
+    background-color: var(--color-primar-light);
+  }
+  &__link,
+  &__lihk:link,
+  &__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: rem-calc(15) rem-calc(30);
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    @include screenSize(tablet) {
+      padding: rem-calc(15) rem-calc(10);
+      justify-content: center;
+    }
+    @include screenSize(phone) {
+      flex-direction: column;
+      padding: rem-calc(15) rem-calc(0);
+    }
+  }
+  &__icon {
+    fill: currentColor;
+    margin-right: rem-calc(20);
+    width: rem-calc(20);
+    height: rem-calc(20);
+    @include screenSize(tablet) {
+      margin-right: rem-calc(10);
+      width: rem-calc(15);
+      height: rem-calc(15);
+    }
+  }
+}
+
+.legal {
+  text-align: center;
+  padding: rem-calc(25);
+  @include screenSize(tablet) {
+    display: none;
+  }
+}

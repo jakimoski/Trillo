@@ -1,0 +1,79 @@
+@use "../abstracts/" as *;
+.header {
+  background-color: var(--color-white);
+  border-bottom: $border-grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 rem-calc(30);
+  @include screenSize(phone) {
+    padding: 0 rem-calc(20);
+    flex-wrap: wrap;
+  }
+}
+
+.content {
+  display: flex;
+  @include screenSize(tablet) {
+    flex-direction: column;
+  }
+}
+
+.sidebar {
+  background-color: var(--color-grey-dark-1);
+  flex: 0 0 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hotel-view {
+  background-color: var(--color-white);
+  flex: 1;
+  background-color: var(--color-grey-light-1);
+  border-bottom: $border-grey;
+}
+
+.detail {
+  display: flex;
+  padding: rem-calc(30);
+  @include screenSize(tablet) {
+    padding: rem-calc(20);
+  }
+  @include screenSize(phone) {
+    flex-direction: column;
+  }
+}
+
+.description {
+  flex: 0 0 60%;
+  background-color: var(--color-white);
+  box-shadow: $box-shadow;
+  margin-right: rem-calc(30);
+  padding: rem-calc(20);
+  font-size: $font-size-xs;
+  @include screenSize(tablet) {
+    margin-right: rem-calc(20);
+  }
+  @include screenSize(phone) {
+    margin-right: 0;
+    margin-bottom: rem-calc(20);
+  }
+}
+
+.user-reviews {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+}
+
+.cta {
+  margin-top: rem-calc(30);
+  padding: rem-calc(30) 0;
+  text-align: center;
+  background-color: var(--color-white);
+  border-top: $border-grey;
+}

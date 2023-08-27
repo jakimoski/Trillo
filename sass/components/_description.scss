@@ -1,0 +1,60 @@
+@use "../abstracts/" as *;
+
+.description {
+  &__paragraph {
+    font-size: $font-size-s;
+    &:not(:last-of-type) {
+      margin-bottom: rem-calc(20);
+    }
+  }
+  .list {
+    list-style: none;
+    margin: rem-calc(30) 0;
+    padding: rem-calc(30) 0;
+    border-top: $border-grey;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+      flex: 0 0 50%;
+      margin-bottom: 7px;
+      display: flex;
+      align-items: center;
+      &::before {
+        content: "";
+        display: inline-block;
+        height: rem-calc(12);
+        width: rem-calc(12);
+        margin-right: 5px;
+        background-size: cover;
+        background-color: var(--color-primary);
+        -webkit-mask-image: url(../img/chevron-thin-right.svg);
+        mask-image: url(../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        mask-size: cover;
+      }
+    }
+  }
+
+  .recommend {
+    border-top: $border-grey;
+    padding-top: rem-calc(10);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__friends {
+      display: flex;
+      flex-shrink: 0;
+    }
+
+    &__photo {
+      width: rem-calc(40);
+      height: rem-calc(40);
+      border-radius: 50%;
+      border: rem-calc(3) solid var(--color-white);
+      &:not(:first-child) {
+        margin-left: rem-calc(-10);
+      }
+    }
+  }
+}

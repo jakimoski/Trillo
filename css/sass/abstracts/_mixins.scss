@@ -1,0 +1,62 @@
+@use "./variables" as *;
+@use "sass:math";
+
+// MEDIA QUERY MANAGER
+/*
+0 - 480px:      Phone
+480 - 768px:    Tablet portrait
+[768 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tablet
+- big-desktop
+
+1em = 16px
+*/
+@mixin screenSize($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 30em) {
+      @content;
+    } //480px
+  }
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 50em) {
+      @content;
+    } //800px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    } //1800px
+  }
+}
+
+%section {
+  padding-top: $gutter-base * 2;
+  padding-bottom: $gutter-base * 2;
+
+  @include screenSize(tablet) {
+    padding-top: $gutter-base;
+    padding-bottom: $gutter-base;
+  }
+}
+
+%wrap {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include screenSize(tablet) {
+    width: 100%;
+    padding-left: math.div($gutter-base, 2);
+    padding-right: math.div($gutter-base, 2);
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
